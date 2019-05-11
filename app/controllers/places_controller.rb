@@ -14,7 +14,7 @@ before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destro
     redirect_to root_path
   else
     render :new, status: :unprocessable_entity
-    
+
 end
   end
 
@@ -36,8 +36,11 @@ end
       return render plain: 'Not Allowed', status: :forbidden
     end
      @place.update_attributes(place_params)
+     if @place.valid?
      redirect_to root_path
-
+   else
+    render :edit, staus: :unprocessable_entity
+  end
   end
 
   def destroy
@@ -58,4 +61,3 @@ end
   end
 
 end
-
