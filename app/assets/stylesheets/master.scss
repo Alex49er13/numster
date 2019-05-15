@@ -25,7 +25,7 @@ body{
 .navbar{
   background: image_url('carbon_fibre.png');
   box-shadow: 2px 3px 5px grey;
-  padding: 10px;
+  padding: 50px;
 
 }
 .invalid-feedback {
@@ -38,4 +38,6 @@ body{
 #map {
  height: 300%;
  }
-
+ .clear{
+  clear:both;
+ }
