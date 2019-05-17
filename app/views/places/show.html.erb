@@ -59,21 +59,8 @@ html, body {
 
  <div class="clear"></div>
 
-  <h1>Comments</h1>
-  <% @place.comments.each do |comment| %>
-  <div>
-    <blockquote>
-      <b><%= comment.humanized_rating%></b>
-      <%= comment.message %>
-      <small><%= comment.user.email %></small>
-    </blockquote>
-  </div>
-  <% end %>
 
- <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Add a Comment
-</button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -85,21 +72,42 @@ html, body {
         </button>
         <h4 class="modal-title" id="myModalLabel">Add a comment</h4>
       </div>
-      <div class="modal-body">
-        
-  <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
-  <%= f.input :message %>
-  <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
-  
-  
+      <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
 
-      </div>
+      <div class="modal-body">
+        <%= f.input :message %>
+        <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
+    </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-       
         <%= f.submit "Add a Comment", class: 'btn btn-promary' %>
       </div>
       <% end %>
     </div>
   </div>
 </div>
+
+
+<div class="row">
+<div class="col-10 offset-1">
+<h1 class="float-left">Comments</h1>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
+  Add a comment
+</button>
+</div>
+<div class="clear"></div>
+
+  <% @place.comments.each do |comment| %>
+    <div class="col-12 col-sm-6">
+      <blockquote>
+        <% if comment.humanized_rating.present? %>
+          <b><%= comment.humanized_rating %></b> -
+        <% end %>
+        <%= comment.message %>
+        <small><%= comment.user.email %></small>
+      </blockquote>
+  </div>
+  <% end %>
+</div>
+
