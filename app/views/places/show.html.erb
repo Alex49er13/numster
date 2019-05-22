@@ -3,6 +3,8 @@
 <i><%= @place.address %></i>
 <br/><br/>
 <p><%= @place.description %></p>
+</div>
+
 
 
    
@@ -77,6 +79,7 @@ html, body {
       <div class="modal-body">
         <%= f.input :message %>
         <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
+
     </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

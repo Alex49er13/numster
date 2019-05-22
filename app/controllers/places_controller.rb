@@ -16,14 +16,13 @@ before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destro
     render :new, status: :unprocessable_entity
 
 end
-  end
+ 
 
   def show
     @place = Place.find(params[:id])
     @comment = Comment.new
     
-  end
-
+end
   def edit
     @place = Place.find(params[:id])
 
@@ -57,10 +56,12 @@ end
     redirect_to root_path
   end
 
+
   private
 
   def place_params
     params.require(:place).permit(:name,:description, :address)
   end
+    end
+  end
 
-end
