@@ -6,16 +6,14 @@
  
     <i><%= place.address %></i><br /><br />
     <p><%= place.description %></p><br />
-       
-      <% if place.photos.present? %>
+      
+
+    <% if place.photos.present? %>
       <div class="col-6">
-       
-    
-        <%= place.photos.last.picture %>
-        <%= place.photos.last.caption %>
-        <% end %>
+      <%= place.photos.last.picture %>
+      <%= place.photos.last.caption %>
       </div>
-    
+    <% end %>
      
     
    <% if place.user.present? %>
@@ -33,5 +31,5 @@
       </blockquote>
     </div>
    <% end %>
-  </div>
-  <% end %>
+ </div>
+<% end %>
