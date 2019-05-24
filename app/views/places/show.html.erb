@@ -7,13 +7,13 @@
  
   <style>
     html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+      height: 100%;
+      margin: 0;
+      padding: 0;
     }
     
-  #map {
-    height: 300px;
+    #map {
+      height: 300px;
     }
   </style>
          
@@ -31,16 +31,16 @@
               center: myLatLng
             });
 
-              var marker = new google.maps.Marker({
-                  position: myLatLng,
-                 map: map,
-                  title: 'Hello World!'
-              });
+            var marker = new google.maps.Marker({
+              position: myLatLng,
+              map: map,
+              title: 'Hello World!'
+            });
         }
       </script>
 
       <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVk3-YySAwZ2GchEiNYqTz5Cd2HHr3dac&callback=initMap">
+         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVk3-YySAwZ2GchEiNYqTz5Cd2HHr3dac&callback=initMap">
       </script>
   
       <div id="map"></div>
@@ -75,7 +75,9 @@
       </div>
       <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
       <div class="modal-body">
-        
+        <%= f.input :picture %>
+        <%= f.input :caption %>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -85,7 +87,12 @@
     </div>
   </div>
 </div>
-
+   <% @place.photos.each do |photo| %>
+     
+        <%= image_tag photo.picture.url,class: "col-3" %>
+        <%= photo.caption %>
+        <% end %>
+     
     </br></br>
  
 <div class="clear"></div>
