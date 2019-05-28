@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="carousel-item">
-      <%= image_tag 'slider2.jpg', class: 'd-block img-fluid' %>
+      <%= image_tag 'slider2.png', class: 'd-block img-fluid' %>
       <div class="carousel-caption d-none d-md-block">
         <h3>A cup of coffee could set your day apart</h3>
       </div>
@@ -44,10 +44,10 @@
       
 
     <% if place.photos.present? %>
-      <div class="col-6">
-      <%= place.photos.last.picture %>
-      <%= place.photos.last.caption %>
-      </div>
+    <div class="col-3">
+    <%= image_tag place.photos.last.picture.url,class: "col-9" %>
+    </div>
+     
     <% end %>
      
     

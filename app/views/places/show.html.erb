@@ -123,7 +123,7 @@
 
     <div class="row">
       <div class="col-10 offset-1">
-        <h1 class="float-left">Comments</h1>
+        
     <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#commentsModal">
         Add a comment
@@ -135,7 +135,7 @@
     <h1 class="text-center">Comments</h1>
     <div class="row">
       <% @place.comments.each do |comment| %>
-        <div class="col-12">
+      <div class="col-12 col-sm-6">
           <blockquote>
             <% if comment.humanized_rating.present? %>
               <b><%= comment.humanized_rating %></b> -
